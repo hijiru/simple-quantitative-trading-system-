@@ -1,16 +1,15 @@
 
   GNU nano 8.0        dockerfile                  FROM node:14 as base
+FORM node:20-alpine
 
 WORKDIR /home/node/app
 
 COPY package.json ./
 
+COPY tsconfig ./
+
 RUN npm i
 
 COPY . .
 
-FROM base as production
-
-ENV NODE_PATH=./build
-
-RUN npm run build
+RUN npm start
