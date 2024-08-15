@@ -5,7 +5,7 @@ WORKDIR /home/node/app
 
 COPY package.json ./
 
-COPY tsconfig ./
+COPY tsconfig.json ./
 
 RUN npm i
 
