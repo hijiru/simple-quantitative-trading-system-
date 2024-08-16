@@ -1,0 +1,10 @@
+#pip install git+https://github.com/dpkp/kafka-python.git excute in your docker
+#use docker compose -f devops/kafka-docker-compose.yml up to start
+#use docker network ls to check your bridge network
+#use docker exec -it <container_name> /bin/bash
+
+#test your apeche kafka with:
+docker exec -it  <container_name> kafka-topics  --bootstrap-server localhost:9092 --create --topic test
+docker exec -it <container_name> kafka-topics  --bootstrap-server localhost:9092 --list  
+docker exec -it <container_name> kafka-console-producer  --bootstrap-server localhost:9092 --topic ishwar-topic
+docker exec -it <container_name> kafka-console-consumer  --bootstrap-server localhost:9092 --topic ishwar-topic —from-beginning
