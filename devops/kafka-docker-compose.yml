@@ -44,7 +44,7 @@ services:
       - kafka-net
   producer-1:
     build: 
-      context: ./src/producer
+      context: ./src/factor
       dockerfile: Dockerfile
     environment:
       - KAFKA_TOPIC_NAME=test
@@ -61,7 +61,7 @@ services:
       - kafka-net
   comsumer-1:
     build: 
-      context: ./src/comsumer
+      context: ./src/strategy
       dockerfile: Dockerfile
     environment:
       - KAFKA_TOPIC_NAME=test
@@ -79,7 +79,7 @@ services:
 
   ts-node-docker:
     build:
-      context: .
+      context: ./src/data
       dockerfile: Dockerfile
       target: base
     volumes:
@@ -92,7 +92,6 @@ services:
       - '4000:4000'
     networks:
         - kafka-net
-    command: npm run dev
   mongodb:
       restart: always
       image: "mongo:bionic"
