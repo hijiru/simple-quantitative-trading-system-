@@ -81,7 +81,6 @@ services:
     build:
       context: ./src/data
       dockerfile: Dockerfile
-      target: base
     volumes:
       - ./src:/home/node/app/src
       - ./nodemon.json:/home/node/app/nodemon.json
